@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize all sections as hidden
     document.querySelectorAll('.content-section').forEach(section => {
@@ -173,11 +171,10 @@ async function loadRaceResults() {
 
 // News Loader
 async function loadNews() {
-    const API_KEY = process.env.API_KEY;
     const container = document.getElementById('news-container');
     
     try {
-        const response = await fetch(`https://newsapi.org/v2/everything?q=formula+1&sortBy=publishedAt&apiKey=${API_KEY}`);
+        const response = await fetch('/api/news');
         const data = await response.json();
 
         if (data.status === 'ok') {
