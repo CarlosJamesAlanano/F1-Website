@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize all sections as hidden
     document.querySelectorAll('.content-section').forEach(section => {
@@ -171,7 +173,7 @@ async function loadRaceResults() {
 
 // News Loader
 async function loadNews() {
-    const API_KEY = '10864b9d1f62400087e147dc0016f08c';
+    const API_KEY = process.env.API_KEY;
     const container = document.getElementById('news-container');
     
     try {
